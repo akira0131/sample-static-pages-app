@@ -3,12 +3,19 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- _shim.html.erbというファイルを探してその内容を評価する -->
+    <%= render 'layouts/shim' %>
   </head>
-
   <body>
-    <%= yield %>
+    <!-- _header.html.erbというファイルを探してその内容を評価する -->
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+      <!-- _footer.html.erbというファイルを探してその内容を評価する -->
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
+
 </html>
